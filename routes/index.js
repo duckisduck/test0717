@@ -54,7 +54,7 @@ router.post('/update',function(req,res){
 		supervise:req.body.password,
 		kaohetime:Date(),
 		tasks:[task1,task2],
-		temptask:[tt1,tt2],
+		temptask:[tt1],
 		updatetime:Date()
 	});
 	newtask.save(function(){
