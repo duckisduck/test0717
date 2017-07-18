@@ -58,7 +58,7 @@ router.post('/update',function(req,res){
 		updatetime:Date()
 	});
 	newtask.save(function(){
-
+		console.log('haha');
 	})
 	res.redirect('/');
 });
