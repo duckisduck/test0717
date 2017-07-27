@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var usermodel =require('../models/db').usermodel;
 var taskmodel =require('../models/db').taskmodel;
-var transporter =require('../models/mail').transporter;
+// var transporter =require('../models/mail').transporter;
 var sendemail =require('../models/mail').sendemail;
 
 /* GET home page. */
