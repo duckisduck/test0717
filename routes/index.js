@@ -3,6 +3,7 @@ var router = express.Router();
 var usermodel =require('../models/db').usermodel;
 var taskmodel =require('../models/db').taskmodel;
 var transporter =require('../models/mail').transporter;
+var sendemail =require('../models/mail').sendemail;
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -70,13 +71,14 @@ router.post('/reg',function(req,res){
                           path: 'models/170720.xlsx' // stream this file
                       }]
                   };
-                  transporter.sendMail(mailOptions, function(error, info){
-                        if(error){
-                            console.log(error);
-                        }else{
-                            console.log('Message sent: ' + info.response);
-                        }
-                    });
+                  // transporter.sendMail(mailOptions, function(error, info){
+                  //       if(error){
+                  //           console.log(error);
+                  //       }else{
+                  //           console.log('Message sent: ' + info.response);
+                  //       }
+                  //   });
+                  sendemail(mailOptions);
 			res.redirect('/');
 		}
 	});

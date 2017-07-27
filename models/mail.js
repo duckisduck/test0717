@@ -12,7 +12,7 @@ var stmpConfig ={
 
 var transporter = nodemailer.createTransport(stmpConfig);
 
-var sendmail=function(mailOptions) {
+var sendemail=function(mailOptions) {
 	transporter.sendMail(mailOptions, function(error, info){
         if(error){
             console.log(error);
@@ -20,8 +20,10 @@ var sendmail=function(mailOptions) {
             console.log('Message sent: ' + info.response);
         }
     });
-}
-exports.transporter = transporter;
+};
+
+exports.sendemail = sendemail;
+// exports.transporter = transporter;
 
 
 
