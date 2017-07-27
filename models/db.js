@@ -11,7 +11,8 @@ db.connection.once('open', function () { //监听一次打开
 
 var userSchema = new mongoose.Schema({
 	name: String,
-	password: String
+	password: String,
+	email: String
 });
 
 var user = db.model('user',userSchema);
