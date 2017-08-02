@@ -22,6 +22,10 @@ router.get('/suc',function(req,res,next){
 	res.render('suc',{title:'success'});
 });
 
+router.get('/de',function(req,res,next){
+	res.render('deviceDataLici',{title:'success'});
+});
+
 router.post('/ucenter',function(req,res){
 	//var query_par = {name:req.body.name};
 	var newuser = {name:req.body.name,password:req.body.password};
@@ -59,16 +63,16 @@ router.post('/reg',function(req,res){
                       to: req.body.email, // list of receivers
                       subject: 'Hello', // Subject line
                       text: 'text', // plaintext body
-                      html: '<h1>欢迎注册能事达云平台</h1><h2>欢迎注册能事达云平台</h2><h3>欢迎注册能事达云平台</h3><h>欢迎注册能事达云平台</h>欢迎注册能事达云平台欢迎注册能事达云平台欢迎注册能事达云平台欢迎注册能事达云平台欢迎注册能事达云平台欢迎注册能事达云平台欢迎注册能事达云平台欢迎注册能事达云平台欢迎注册能事达云平台欢迎注册能事达云平台欢迎注册能事达云平台欢迎注册能事达云平台欢迎注册能事达云平台欢迎注册能事达云平台欢迎注册能事达云平台欢迎注册能事达云平台欢迎注册能事达云平台欢迎注册能事达云平台欢迎注册能事达云平台<br /><img src="cid:unique@nodemailer.com"/>',
+                      html: '<h1>欢迎注册能事达云平台</h1><br /><h3>长江三峡能事达电气股份有限公司是三峡集团公司的参股企业和集团公司的电气工程技术中心，是国家认定的“高新技术企业”。公司是国内极少数有能力承接水电厂二次设备“交钥匙”工程的公司之一，也是国家“大型数字式水轮机调速器产业化基地”。公司总部位于武汉洪山高新开发区，并在武汉经济开发区拥有生产加工中心。</h3><a href="http://www.nengshida.com">了解更多信息，请点击!</a><br /><img src="cid:unique@nodemailer.com"/>',
                       attachments: [{
-                          filename: 'nsd.jpg',
-                          path: 'models/nsd.jpg',
+                          filename: 'address.png',
+                          path: 'models/address.png',
                           cid: 'unique@nodemailer.com' //same cid value as in the html img src
                       },
                       {
                            // file on disk as an attachment
-                          filename: '170720.xlsx',
-                          path: 'models/170720.xlsx' // stream this file
+                          filename: 'GENCESS PAC选型手册.pdf',
+                          path: 'models/GENCESS PAC选型手册.pdf' // stream this file
                       }]
                   };
                   // transporter.sendMail(mailOptions, function(error, info){

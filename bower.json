@@ -1,0 +1,30 @@
+{
+  "name": "test0714",
+  "description": "",
+  "main": "",
+  "authors": [
+    "duckisduck <1433822301@qq.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/duckisduck/test0717",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/bower_mod",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.2.1",
+    "bootstrap": "^3.3.7",
+    "metisMenu": "^2.7.0",
+    "font-awesome": "^4.7.0",
+    "bootstrap-social": "^5.1.1",
+    "bootbox.js": "bootbox#^4.4.0"
+  },
+  "resolutions": {
+    "jquery": "~2.2.4"
+  }
+}
