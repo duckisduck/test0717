@@ -26,6 +26,10 @@ router.get('/de',function(req,res,next){
 	res.render('deviceDataLici',{title:'success'});
 });
 
+router.get('/angulartest',function(req,res,next){
+	res.render('angulartest',{title:'angular'});
+});
+
 router.post('/ucenter',function(req,res){
 	//var query_par = {name:req.body.name};
 	var newuser = {name:req.body.name,password:req.body.password};

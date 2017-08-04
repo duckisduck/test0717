@@ -22,7 +22,8 @@
     "metisMenu": "^2.7.0",
     "font-awesome": "^4.7.0",
     "bootstrap-social": "^5.1.1",
-    "bootbox.js": "bootbox#^4.4.0"
+    "bootbox.js": "bootbox#^4.4.0",
+    "angular": "^1.6.5"
   },
   "resolutions": {
     "jquery": "~2.2.4"
