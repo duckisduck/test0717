@@ -3,7 +3,12 @@
 <head>
 	<meta charset="UTF-8">
 	<title>angular</title>
+	<link rel="stylesheet" href="bower_mod/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="bower_mod/font-awesome/css/font-awesome.min.css">
+	<script src="bower_mod/jquery/dist/jquery.min.js"></script>
+    <script src="bower_mod/bootstrap/dist/js/bootstrap.min.js"></script>
 	<script src="bower_mod/angular/angular.min.js"></script>
+	<script src="javascripts/data.js"></script>
 </head>
 <body>
 	<div ng-app="myApp" ng-controller="myCtrl">
@@ -11,15 +16,50 @@
 		名<input type="text" ng-model="lastName"><br>
 		<br>		
 		姓名：{{fullname()}}
+		<br>
+		<p>{{myUrl}}</p>
+		<p>{{nowTime}}</p>
+		<table class="table">
+		<caption>基本表格</caption>
+		
+		<thead>
+			<tr>
+				<th>姓名</th>
+				<th>国家</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="x in names | orderBy:'Country'">
+				<td>{{x.Name}}</td>
+				<td>{{x.Country}}</td>
+
+			</tr>
+		</tbody>		
+		</table>
+		
+		<!-- <ul>
+			<li ng-repeat="x in names">{{x.Name+x.Country}}</li>
+		</ul> -->
 	</div>
 	<script>
 		var app = angular.module('myApp',[]);
-		app.controller('myCtrl',function($scope){
+		app.controller('myCtrl',function($scope,$location,$interval,$http){
 			$scope.firstName = "liu";
 			$scope.lastName ="yuqi";
+			$scope.nowTime = new Date().toLocaleTimeString();
+			$scope.myUrl = $location.absUrl();
 			$scope.fullname = function(){
 				return $scope.firstName+" "+$scope.lastName;
 			};
+			$interval(function(){
+				$scope.nowTime = new Date().toLocaleTimeString();
+			},1000);
+			$http.get('http://127.0.0.1:3000/javascripts/Customers_JSON.php').then(function(result){
+				$scope.names=result.records;
+				console.log(result);
+			}).catch(err=>console.log(err));
+			// $scope.names = [{"Name":"Alfreds Futterkiste","City":"Berlin","Country":"Germany"}, {"Name":"Ana Trujillo Emparedados y helados","City":"México D.F.","Country":"Mexico"}, {"Name":"Antonio Moreno Taquería","City":"México D.F.","Country":"Mexico"}, {"Name":"Around the Horn","City":"London","Country":"UK"}, {"Name":"Bs Beverages","City":"London","Country":"UK"}, {"Name":"Berglunds snabbköp","City":"Luleå","Country":"Sweden"}, {"Name":"Blauer See Delikatessen","City":"Mannheim","Country":"Germany"}, {"Name":"Blondel père et fils","City":"Strasbourg","Country":"France"}, {"Name":"Bólido Comidas preparadas","City":"Madrid","Country":"Spain"}, {"Name":"Bon app","City":"Marseille","Country":"France"}, {"Name":"Bottom-Dollar Marketse","City":"Tsawassen","Country":"Canada"}, {"Name":"Cactus Comidas para llevar","City":"Buenos Aires","Country":"Argentina"}, {"Name":"Centro comercial Moctezuma","City":"México D.F.","Country":"Mexico"}, {"Name":"Chop-suey Chinese","City":"Bern","Country":"Switzerland"}, {"Name":"Comércio Mineiro","City":"São Paulo","Country":"Brazil"}
+			// ]
 		});
 	</script>
 	<!-- <div ng-app="myApp" ng-controller="myCtrl">
