@@ -24,16 +24,35 @@
 }
 
 
+
 /*#NSD-pager nav .navbar-header {
   display: block;
   width: 201px;
   border-right: #e7e7e7 1px solid;
 }*/
-
+/*liu*/
 .first-row{
   margin:30px 30px;
 }
 
+.blue{
+  background-color: #337ab7;
+}
+
+.blue:hover{
+  background-color:#569DCE;
+}
+
+.grey{
+  background-color: #dddddd;
+}
+
+.grey:hover{
+  background-color: #BEBEBA;
+}
+
+
+/*liu*/
 .NSD-top-navbar {
   margin-right: 0;
 }

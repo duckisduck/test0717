@@ -236,7 +236,7 @@
           </ul>  
       </nav>	    	       
 	        <!-- /.col-lg-12 -->
-      <div class="first-row">
+      <div class="first-row" ng-app="myApp" ng-controller="myCtrl">
       <!-- firstRow -->
   	    <div class="row">
                   <div class="col-lg-4">
@@ -261,22 +261,22 @@
                                         <button type="button" class="col-lg-3 btn disabled" style="border-radius:0;">写入成功</button>
                                         <button type="button" class="col-lg-3 btn disabled" style="border-radius:0;">写入失败</button>
                                         <button type="button" class="col-lg-3 btn disabled" style="border-radius:0;">均流已启用</button>
-                                        <button type="button" class="col-lg-3 btn" style="border-radius:0;">功率柜故障</button>
-                                        <button type="button" class="col-lg-3 btn" style="border-radius:0;">快熔熔断</button>
-                                        <button type="button" class="col-lg-3 btn" style="border-radius:0;">投风机</button>
-                                        <button type="button" class="col-lg-3 btn" style="border-radius:0;">备用</button>
-                                        <button type="button" class="col-lg-3 btn" style="border-radius:0;">备用</button>
-                                        <button type="button" class="col-lg-3 btn" style="border-radius:0;">备用</button>
-                                        <button type="button" class="col-lg-3 btn" style="border-radius:0;">备用</button>
-                                        <button type="button" class="col-lg-3 btn" style="border-radius:0;">备用</button>
-                                        <button type="button" class="col-lg-3 btn" style="border-radius:0;">备用</button>
-                                        <button type="button" class="col-lg-3 btn" style="border-radius:0;">备用</button>
-                                        <button type="button" class="col-lg-3 btn" style="border-radius:0;">备用</button>
-                                        <button type="button" class="col-lg-3 btn" style="border-radius:0;">备用</button>
-                                        <button type="button" class="col-lg-3 btn" style="border-radius:0;">备用</button>
-                                        <button type="button" class="col-lg-3 btn" style="border-radius:0;">备用</button>
-                                        <button type="button" class="col-lg-3 btn" style="border-radius:0;">备用</button>
-                                        <button type="button" class="col-lg-3 btn" style="border-radius:0;">备用</button>
+                                        <button type="button" class="col-lg-3 btn" ng-click="doClick('a0')" ng-class="{true:'blue',false:'grey'}[tags.a0 == true]"  style="border-radius:0;">功率柜故障</button>
+                                        <button type="button" class="col-lg-3 btn" ng-class="{true:'blue',false:'grey'}[tags.a1 == true]" ng-click="doClick('a1')" style="border-radius:0;">快熔熔断</button>
+                                        <button type="button" class="col-lg-3 btn" ng-class="{true:'blue',false:'grey'}[tags.a2 == true]" ng-click="doClick('a2')" style="border-radius:0;">投风机</button>
+                                        <button type="button" class="col-lg-3 btn" ng-class="{true:'blue',false:'grey'}[tags.a3 == true]" ng-click="doClick('a3')" style="border-radius:0;">备用</button>
+                                        <button type="button" class="col-lg-3 btn" ng-class="{true:'blue',false:'grey'}[tags.a4 == true]" ng-click="doClick('a4')" style="border-radius:0;">备用</button>
+                                        <button type="button" class="col-lg-3 btn" ng-class="{true:'blue',false:'grey'}[tags.a5 == true]" ng-click="doClick('a5')" style="border-radius:0;">备用</button>
+                                        <button type="button" class="col-lg-3 btn" ng-class="{true:'blue',false:'grey'}[tags.a6 == true]" ng-click="doClick('a6')" style="border-radius:0;">备用</button>
+                                        <button type="button" class="col-lg-3 btn" ng-class="{true:'blue',false:'grey'}[tags.a7]" ng-click="doClick('a7')" style="border-radius:0;">备用</button>
+                                        <button type="button" class="col-lg-3 btn" ng-class="{true:'blue',false:'grey'}[tags.a8]" ng-click="doClick()" style="border-radius:0;">备用</button>
+                                        <button type="button" class="col-lg-3 btn" ng-class="{true:'blue',false:'grey'}[tags.a9]" ng-click="doClick()" style="border-radius:0;">备用</button>
+                                        <button type="button" class="col-lg-3 btn" ng-class="{true:'blue',false:'grey'}[tags.a10]" ng-click="doClick()" style="border-radius:0;">备用</button>
+                                        <button type="button" class="col-lg-3 btn" ng-class="{true:'blue',false:'grey'}[tags.a11]" ng-click="doClick()" style="border-radius:0;">备用</button>
+                                        <button type="button" class="col-lg-3 btn" ng-class="{true:'blue',false:'grey'}[tags.a12]" ng-click="doClick()" style="border-radius:0;">备用</button>
+                                        <button type="button" class="col-lg-3 btn" ng-class="{true:'blue',false:'grey'}[tags.a13]" ng-click="doClick()" style="border-radius:0;">备用</button>
+                                        <button type="button" class="col-lg-3 btn" ng-class="{true:'blue',false:'grey'}[tags.a14]" ng-click="doClick()" style="border-radius:0;">备用</button>
+                                        <button type="button" class="col-lg-3 btn" ng-class="{true:'blue',false:'grey'}[tags.a15]" ng-click="doClick()" style="border-radius:0;">备用</button>
 
                               </div>                 
                           </div>
@@ -1212,10 +1212,44 @@
       // };
 
 
-      $(function(){
-        $("button").click(function(e){
-            bootbox.confirm({
-              message: "确认修改数据?",
+      // 按键实现切换do量真假
+      // $(function(){
+      //   $("button").click(function(e){
+      //       bootbox.confirm({
+      //         message: "确认修改数据?",
+      //         buttons: {
+      //             confirm: {
+      //                 label: 'Yes',
+      //                 className: 'btn-primary'
+      //             },
+      //             cancel: {
+      //                 label: 'No',
+      //                 className: 'btn-danger'
+      //             }
+      //         },
+      //         callback: function (result) {
+      //         // console.log('This was logged in the callback: ' + result);
+      //         if(result){
+      //           if($(e.target).hasClass("btn-primary")){
+      //             $(e.target).removeClass("btn-primary");
+      //           }else{
+      //             $(e.target).addClass("btn-primary");
+      //           }
+                
+      //         }
+      //         }
+      //       });
+      //   });
+      // });
+
+      var app = angular.module('myApp',[]);
+      app.controller('myCtrl',function($scope){
+        $scope.tags={a0:false,a1:false,a2:false,a3:false,a4:false,a5:false,a6:false,a7:false,a8:false,a9:false,a10:false,a11:false,a12:false};
+        $scope.doClick = function(tagName){
+          console.log(tagName+$scope.tags[tagName]);
+          var confirmFlag ;       
+          bootbox.confirm({
+              message: "确认修改数据"+tagName+"?",
               buttons: {
                   confirm: {
                       label: 'Yes',
@@ -1229,18 +1263,28 @@
               callback: function (result) {
               // console.log('This was logged in the callback: ' + result);
               if(result){
-                if($(e.target).hasClass("btn-primary")){
-                  $(e.target).removeClass("btn-primary");
-                }else{
-                  $(e.target).addClass("btn-primary");
+                  if($scope.tags[tagName]){
+                    $scope.$apply(function(){
+                      $scope.tags[tagName]=false;
+                      console.log(tagName+$scope.tags[tagName]);
+                    });
+                  
+                    }else{
+                      $scope.$apply(function(){
+                        $scope.tags[tagName]=true;
+                        console.log(tagName+$scope.tags[tagName]);
+                    });
+                  }
                 }
-                
-              }
               }
             });
-        });
-      });
+         
+         
+        };
 
+
+
+      });
     </script>
 </body>
 </html>

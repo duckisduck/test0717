@@ -5,6 +5,7 @@
 	<title>angular</title>
 	<link rel="stylesheet" href="bower_mod/bootstrap/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="bower_mod/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="stylesheets/mytheme.css">
 	<script src="bower_mod/jquery/dist/jquery.min.js"></script>
     <script src="bower_mod/bootstrap/dist/js/bootstrap.min.js"></script>
 	<script src="bower_mod/angular/angular.min.js"></script>
@@ -36,7 +37,11 @@
 			</tr>
 		</tbody>		
 		</table>
-		
+		<div>
+			<p ng-class="{true:'blue',false:'grey'}[class1==true]">class1</p>
+		</div>
+		<button type="button" ng-class="{true:'blue',false:'grey'}[a0]"  ng-click="doClick('a0')">功率柜故障</button>
+		<button type="button" ng-class="{true:'blue',false:'grey'}[a1]"  ng-click="doClick('a1')">功率柜故障</button>
 		<!-- <ul>
 			<li ng-repeat="x in names">{{x.Name+x.Country}}</li>
 		</ul> -->
@@ -47,12 +52,29 @@
 			$scope.firstName = "liu";
 			$scope.lastName ="yuqi";
 			$scope.nowTime = new Date().toLocaleTimeString();
-			$scope.myUrl = $location.absUrl();
+			$scope.myUrl = $location.absUrl();			
+			$scope.doClick = function(tagname){
+				console.log(tagname+"   "+$scope.tagname);
+				if ($scope[tagname]) {
+					$scope[tagname]=false;
+					console.log(tagname+"   "+$scope.tagname);
+				}else{
+					$scope[tagname]=true;
+					console.log(tagname+"   "+$scope.tagname);
+
+				}
+			};
 			$scope.fullname = function(){
 				return $scope.firstName+" "+$scope.lastName;
 			};
 			$interval(function(){
 				$scope.nowTime = new Date().toLocaleTimeString();
+				if ($scope.class1) {
+					$scope.class1 = false;
+				}else{
+					$scope.class1 = true;
+
+				}
 			},1000);
 			$http.get('http://127.0.0.1:3000/javascripts/Customers_JSON.php').then(function(result){
 				$scope.names=result.records;
